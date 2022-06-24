@@ -208,7 +208,7 @@ section .question-body {
 
 .SectionDark .question-body {
   background: #1e5d74;
-  box-shadow: 0px 5px 10px #587575c4;
+  box-shadow:none;
 }
 
 section .question-body .head {
