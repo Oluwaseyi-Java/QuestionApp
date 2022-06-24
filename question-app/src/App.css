@@ -1,38 +1,292 @@
 .App {
-  text-align: center;
+  position: relative;
+  transition: all 0.5s ease;
+  padding-bottom: 700px;
+  height: 100%;
+  width: 100%;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+.AppDark {
+  background: #04133b;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+body {
+  margin: 0;
+  background: #f3f5f7;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.Header {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+  border-bottom: 1px solid #888;
+  align-items: center;
+}
+
+span {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.fa {
+  color: #3cb4e0;
+}
+
+main {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 20px 0;
+  justify-content: space-around;
+  padding: 10px 5%;
+}
+
+article {
+  background: #fff;
+  width: 45%;
+  margin: 10px 0;
+  text-align: center;
+  border-radius: 2px;
+}
+
+.article {
+  background: #04133b;
+  border: 1px solid rgb(115, 115, 115);
+}
+
+article:hover {
+  box-shadow: 0px 5px 10px #d9d8d8;
+}
+
+.article:hover {
+  box-shadow: 0px 5px 10px #3a486d;
+}
+
+article img {
+  width: 30%;
+  margin-top: 10px;
+  border-radius: 50px;
+}
+
+.level {
+  text-align: center;
+  font-size: 1.2em;
+  font-weight: 500;
+}
+
+.welcomeMessage {
+  text-align: center;
+  font-size: 1.5em;
+  margin: auto;
+  color: #3cb4e0;
+  font-weight: 600;
+  width: 70%;
+  padding: 20px 0;
+}
+
+.welcomeMessage a {
+  color: red;
+}
+
+.welcomeMessageDark {
+  color: white;
+  text-align: center;
+  font-size: 1.5em;
+  margin: auto;
+  font-weight: 600;
+  width: 70%;
+  padding: 20px 0;
+}
+
+.welcomeMessageDark a {
+  color: red;
+}
+
+aside {
+  background-color: white;
+  height: 100%;
+  width: 40%;
+  position: fixed;
+  padding: 20px 5%;
+  text-align: center;
+  box-shadow: 2px 5px 10px #d5d7d7;
+  transition: all 0.5s ease;
+  animation: NavShow 1s;
+}
+
+@keyframes NavShow {
+  0% {
+    transform: translatex(-142px);
   }
-  to {
-    transform: rotate(360deg);
+
+  100% {
+    transform: translatex(0px);
   }
+}
+
+
+.aside {
+  background: #04133b;
+  color: white;
+  box-shadow: 2px 5px 10px #4b5673;
+  z-index: 99;
+}
+
+aside .close {
+  position: absolute;
+  top: 1%;
+  right: 5%;
+}
+
+aside img {
+  width: 30%;
+  border-radius: 50px;
+}
+
+aside .navigation ul {
+  list-style-type: none;
+  display: block;
+  padding: 0;
+}
+
+aside .navigation ul li {
+  text-align: left;
+  padding: 10px 20px;
+  font-weight: 500;
+}
+
+aside .navigation ul li:hover {
+  border-left: 2px solid #3cb4e0;
+  color: white;
+  background-color: #3cb4e0;
+}
+
+section {
+  width: 90%;
+  margin: 40px auto;
+  background: white;
+}
+
+.SectionDark {
+  background: #04133b;
+  border: 1px solid rgba(155, 155, 155, 0.597);
+}
+
+section .question-top {
+  width: 100%;
+  height: 100px;
+  display: flex;
+  gap: 10px;
+  flex-grow: 3;
+  justify-content: space-around;
+  background: linear-gradient(1300deg, #72e5e9 0%, #3cb4e0 100%);
+}
+
+.SectionDark .question-top {
+  background: linear-gradient(1300deg, #397274 0%, #1e5d74 100%);
+
+}
+
+section .question-top span {
+  margin-top: -40px;
+  color: white;
+}
+
+section .question-body {
+  width: 70%;
+  margin: -40px auto 0 auto;
+  background: white;
+  padding: 10px 30px 30px 30px;
+  box-shadow: 0px 5px 10px #dfe5e5;
+}
+
+.SectionDark .question-body {
+  background: #1e5d74;
+  box-shadow: 0px 5px 10px #587575c4;
+}
+
+section .question-body .head {
+  font-size: 0.8em;
+}
+
+section .question-body .question {
+  font-size: 0.9em;
+}
+
+section .question-btn {
+  display: flex;
+  justify-content: center;
+  gap: 10%;
+  padding: 30px 0;
+}
+
+section .question-btn button {
+  padding: 10px 10px;
+  text-transform: uppercase;
+  border: 1px solid #3cb4e0;
+  border-radius: 5px;
+}
+
+section .question-btn button#btn1 {
+  background: transparent;
+  color: #3cb4e0;
+}
+
+section .question-btn button#btn2 {
+  background: #3cb4e0;
+  color: white;
+}
+
+.modal {
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  top: 0;
+  background-color: #3cb4e069;
+}
+
+.modalDark section {
+  background: #04133b;
+
+}
+
+.modal section {
+  width: 60%;
+  min-height: 30%;
+  padding: 2% 5%;
+  position: absolute;
+  left: 15%;
+  top: 17%;
+}
+
+.modal section h3 {
+  color: #3cb4e0;
+  padding: 0;
+  margin: 5px 0;
+}
+
+.modal section hr {
+  height: 1px;
+  background-color: #3cb4e0;
+  border: none;
+
+}
+
+.modal section button {
+  position: absolute;
+  bottom: 5%;
+  right: 5%;
+  padding: 5px 10px;
+  background: transparent;
+  border: none;
+  background-color: #3cb4e0;
+  color: white;
+  border-radius: 3px;
 }

@@ -1,23 +1,26 @@
-import logo from './logo.svg';
+
 import './App.css';
+import Body from './Components/Body';
+import Header from './Components/Header';
+import Modal from './Components/Modal';
+import Questions from './Components/Questions';
+import Sidebar from "./Components/Sidebar"
+import { useGlobalContext } from "./Context/AppContext"
+
 
 function App() {
+  const { isSidebarOpen, isModalOpen, isBodyOpen,
+    isQuestionOpen, isDark, data, openSidebar, myLevel, course } = useGlobalContext();
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className={`${isDark ? "App AppDark" : "App"}`}>
+      {isSidebarOpen && <Sidebar />}
+      <Header />
+      {course[0] ?
+        <p className='level'>{myLevel} Level CBT Revise</p> :
+        <p className={`${isDark ? "welcomeMessageDark" : "welcomeMessage"}`}>Welcome,You can choose your level <a onClick={openSidebar}>here</a></p>}
+
+      {isBodyOpen && <Body />}
+      {isQuestionOpen && <Questions />}
     </div>
   );
 }
