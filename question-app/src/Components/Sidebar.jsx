@@ -4,13 +4,14 @@ import { FaTimes } from "react-icons/fa"
 import { useGlobalContext } from '../Context/AppContext'
 
 const Sidebar = () => {
-  const { closeSidebar, isDark, data, getCourse, openBody } = useGlobalContext();
+  const { closeSidebar, isDark, data,
+    getCourse, openBody, isDesktop } = useGlobalContext();
 
 
 
 
   return (
-    <aside className={`${isDark ? "aside" : ""}`}>
+    <aside id={`${isDesktop?"DesktopView":""}`} className={`${isDark ? "aside" : ""}`}>
       <FaTimes className="close fa" onClick={closeSidebar} />
       <h3>Revise</h3>
       <img src={img} alt="pic" />

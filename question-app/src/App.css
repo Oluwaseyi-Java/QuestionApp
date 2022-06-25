@@ -11,6 +11,11 @@
   color: white;
 }
 
+.sizing {
+  height: 100%;
+  width: 100%;
+}
+
 body {
   margin: 0;
   background: #f3f5f7;
@@ -208,7 +213,7 @@ section .question-body {
 
 .SectionDark .question-body {
   background: #1e5d74;
-  box-shadow:none;
+  box-shadow: none;
 }
 
 section .question-body .head {
@@ -231,12 +236,26 @@ section .question-btn button {
   text-transform: uppercase;
   border: 1px solid #3cb4e0;
   border-radius: 5px;
+  /* animation: buttonAnimation 2s; */
 }
 
 section .question-btn button#btn1 {
   background: transparent;
   color: #3cb4e0;
+  /* transition: all 0.5s ease; */
 }
+
+/* @keyframes buttonAnimation {
+  from {
+    padding: 5px;
+    font-size: 0.6em;
+  }
+
+  to {
+    padding: 10px;
+    font-size: 1.1em;
+  }
+} */
 
 section .question-btn button#btn2 {
   background: #3cb4e0;
@@ -249,6 +268,7 @@ section .question-btn button#btn2 {
   width: 100%;
   margin: 0;
   top: 0;
+  left: 0;
   background-color: #3cb4e069;
 }
 
@@ -289,4 +309,44 @@ section .question-btn button#btn2 {
   background-color: #3cb4e0;
   color: white;
   border-radius: 3px;
+}
+
+@media(min-width:600px) {
+
+  article{
+    width: 30%;
+  }
+
+  aside {
+    width: 20%;
+  }
+}
+
+@media(min-width:600px) {
+
+  aside {
+    width: 20%;
+  }
+}
+@media(min-width:800px) {
+ 
+    .App{
+      width: 70%;
+    }
+    .sizing{
+      display: flex;
+      flex-direction: row;
+    }
+ 
+    #DesktopView{
+      position: relative;
+    }
+
+}
+@media(min-width:1100px) {
+  
+  aside {
+    width: 15%;
+  }
+
 }

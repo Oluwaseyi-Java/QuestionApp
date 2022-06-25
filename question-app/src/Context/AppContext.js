@@ -17,11 +17,14 @@ const AppProvider = ({ children }) => {
     const [answer, setAnswer] = useState([])
     const [myLevel, setMyLevel] = useState("")
     const [myCourse, setMyCourse] = useState("")
+    const [atempted, setAtempted]=useState(false)
 
-    const openSidebar = () => {
+    const openSidebar = (id) => {
         setIsSidebarOpen(true)
     }
+    
     const closeSidebar = (id) => {
+      
         setIsSidebarOpen(false)
     }
     const openBody = () => {
@@ -31,6 +34,7 @@ const AppProvider = ({ children }) => {
     const closeBody = (id) => {
         setIsBodyOpen(false)
         setIsQuestionOpen(true)
+        setAtempted(true)
     }
     const openDarkMode = () => {
         setIsDark(true)
@@ -68,7 +72,8 @@ const AppProvider = ({ children }) => {
             setIsSidebarOpen, openDarkMode, closeDarkMode,
             isDark, data, getCourse, course, myLevel,
             isBodyOpen, openBody, closeBody, isQuestionOpen,
-            question, getQuestion, myCourse, answer, getAnswer
+            question, getQuestion, myCourse, answer, getAnswer,
+            atempted
         }
     }>
         {children}

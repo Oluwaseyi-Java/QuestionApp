@@ -2,7 +2,7 @@ import React from 'react'
 import { useGlobalContext } from '../Context/AppContext'
 
 
-const Modal = ({ content }) => {
+const Modal = ({ content,score }) => {
 
     const { openBody, isDark } = useGlobalContext();
 
@@ -12,7 +12,7 @@ const Modal = ({ content }) => {
                 <h3>Alert</h3>
                 <hr />
                 <p>You have reached the end of this session. </p>
-                <p>{content}</p>
+                <p>{content}{ score}</p>
                 <p>{ }</p>
                 <button onClick={openBody}>Go to Home</button>
             </section>

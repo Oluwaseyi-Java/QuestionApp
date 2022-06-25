@@ -1,4 +1,5 @@
 
+import { useEffect, useRef } from 'react';
 import './App.css';
 import Body from './Components/Body';
 import Header from './Components/Header';
@@ -9,18 +10,36 @@ import { useGlobalContext } from "./Context/AppContext"
 
 
 function App() {
-  const { isSidebarOpen, isModalOpen, isBodyOpen,
-    isQuestionOpen, isDark, data, openSidebar, myLevel, course } = useGlobalContext();
-  return (
-    <div className={`${isDark ? "App AppDark" : "App"}`}>
-      {isSidebarOpen && <Sidebar />}
-      <Header />
-      {course[0] ?
-        <p className='level'>{myLevel} Level CBT Revise</p> :
-        <p className={`${isDark ? "welcomeMessageDark" : "welcomeMessage"}`}>Welcome,You can choose your level <a onClick={openSidebar}>here</a></p>}
 
-      {isBodyOpen && <Body />}
-      {isQuestionOpen && <Questions />}
+
+  const { isSidebarOpen, isBodyOpen, isQuestionOpen,
+    isDark, openSidebar, myLevel, course } = useGlobalContext();
+
+  const ref = useRef(null)
+  console.log(ref)
+
+  useEffect(() => {
+    if (ref.current.clientWidth === 800) {
+      openSidebar()
+    }
+  }, [])
+
+
+
+  return (
+    <div className={`${isDark ? "App AppDark" : "App"}`} ref={ref}>
+      <div className='sizing'>
+        {isSidebarOpen && <Sidebar />}
+        <div className='desktop'>
+          <Header />
+          {course[0] ?
+            <p className='level'>{myLevel} Level CBT Revise</p> :
+            <p className={`${isDark ? "welcomeMessageDark" : "welcomeMessage"}`}>Welcome,You can choose your level <a onClick={openSidebar}>here</a></p>}
+
+          {isBodyOpen && <Body />}
+          {isQuestionOpen && <Questions />}
+        </div>
+      </div>
     </div>
   );
 }
