@@ -9,7 +9,7 @@ const Header = () => {
     return (
         <header className="Header">
 
-            <FaBars className='fa' onClick={openSidebar} />
+            <FaBars className='fa times' onClick={openSidebar} />
 
             {isDark ? <span
                 onClick={closeDarkMode}>Dark <FaTimes

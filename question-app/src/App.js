@@ -15,21 +15,22 @@ function App() {
   const { isSidebarOpen, isBodyOpen, isQuestionOpen,
     isDark, openSidebar, myLevel, course } = useGlobalContext();
 
-  const ref = useRef(null)
-  console.log(ref)
+  // const ref = useRef(null)
+  // console.log(ref)
 
-  useEffect(() => {
-    if (ref.current.clientWidth === 800) {
-      openSidebar()
-    }
-  }, [])
+  // useEffect(() => {
+  //   if (ref.current.clientWidth === 800) {
+  //     openSidebar()
+  //   }
+  // }, [])
 
 
 
   return (
-    <div className={`${isDark ? "App AppDark" : "App"}`} ref={ref}>
+    <div className={`${isDark ? "App AppDark" : "App"}`} >
+    {isSidebarOpen && <Sidebar />}
       <div className='sizing'>
-        {isSidebarOpen && <Sidebar />}
+        <Sidebar className="Desktop" />
         <div className='desktop'>
           <Header />
           {course[0] ?
