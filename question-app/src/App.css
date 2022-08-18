@@ -120,7 +120,7 @@ aside {
   width: 40%;
   position: fixed;
   padding: 20px 3%;
-  text-align: center;
+  text-align: left;
   box-shadow: 2px 5px 10px #d5d7d7;
   transition: all 0.5s ease;
   animation: NavShow 1s;
@@ -150,6 +150,10 @@ aside .close {
   right: 5%;
 }
 
+aside .account {
+  cursor: pointer;
+}
+
 aside .filter {
   text-align: left;
   padding: 5px 0;
@@ -176,6 +180,7 @@ aside .navigation ul li {
   font-size: 0.8em;
   margin: 10px 0;
   transition: ease 1s;
+  cursor: pointer;
 }
 
 /* width */
@@ -191,7 +196,7 @@ aside .navigation ul li {
 /* Handle */
 ::-webkit-scrollbar-thumb {
   background: #888;
-  border-radius: 5px;
+  border-radius: 10px;
 }
 
 /* Handle on hover */
@@ -379,6 +384,7 @@ section .question-btn button#btn2 {
     min-height: 700px;
     z-index: 0;
     box-shadow: none;
+    padding: 50px 2%;
   }
 
   aside {
@@ -390,7 +396,7 @@ section .question-btn button#btn2 {
   }
 
   .desktop {
-    width: 70%;
+    width: 76%;
   }
 
   .Header {
@@ -409,7 +415,7 @@ section .question-btn button#btn2 {
 @media(min-width:1100px) {
 
   #Desktop {
-    width: 10%;
+    width: 15%;
   }
 
   .desktop {

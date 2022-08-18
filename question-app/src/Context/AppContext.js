@@ -7,25 +7,19 @@ const AppContext = createContext();
 
 const AppProvider = ({ children }) => {
     const [isSidebarOpen, setIsSidebarOpen] = useState(false);
-    const [isBodyOpen, setIsBodyOpen] = useState(false)
-    const [isQuestionOpen, setIsQuestionOpen] = useState(false)
-
     const [isDark, setIsDark] = useState(false)
     const [data, setData] = useState([])
-    const [course, setCourse] = useState([])
-    const [question, setQuestion] = useState([])
-    const [answer, setAnswer] = useState([])
-    const [myLevel, setMyLevel] = useState("")
-    const [myCourse, setMyCourse] = useState("")
 
     useEffect(() => {
         axios.get("https://opentdb.com/api_category.php")
             .then((response) => {
-                console.log(response.data)
                 setData(response.data.trivia_categories)
             })
+            .catch((err) => {
+                console.error(err)
+            })
     }, [])
-    console.log(data)
+
     const openSidebar = (id) => {
         setIsSidebarOpen(true)
     }
@@ -34,51 +28,21 @@ const AppProvider = ({ children }) => {
 
         setIsSidebarOpen(false)
     }
-    const openBody = () => {
-        setIsBodyOpen(true)
-        setIsQuestionOpen(false)
-    }
-    const closeBody = (id) => {
-        setIsBodyOpen(false)
-        setIsQuestionOpen(true)
-    }
+
     const openDarkMode = () => {
         setIsDark(true)
     }
     const closeDarkMode = () => {
         setIsDark(false)
     }
-    const getQuestion = (id, mycourse) => {
 
-        course.map((quest) => {
-            return (quest.id === id ? setQuestion(quest.question) : "")
-        })
-        setMyCourse(mycourse)
 
-    }
-    const getAnswer = (id) => {
-
-        course.map((quest) => {
-            return (quest.id === id ? setAnswer(quest.answer) : "")
-        })
-
-    }
-    const getCourse = (id, level) => {
-        data.map((level) => {
-            return (level.id === id ? setCourse(level.course) : "")
-        }
-        )
-        setMyLevel(level)
-
-    }
 
     return <AppContext.Provider value={
         {
             openSidebar, closeSidebar, isSidebarOpen,
             setIsSidebarOpen, openDarkMode, closeDarkMode,
-            isDark, data, getCourse, course, myLevel,
-            isBodyOpen, openBody, closeBody, isQuestionOpen,
-            question, getQuestion, myCourse, answer, getAnswer
+            isDark, data
         }
     }>
         {children}

@@ -1,5 +1,6 @@
 
 import React from 'react';
+import { Route, Routes } from 'react-router-dom';
 import './App.css';
 import Body from './Components/Body';
 import Header from './Components/Header';
@@ -10,9 +11,7 @@ import { useGlobalContext } from "./Context/AppContext"
 
 function App() {
 
-
-  const { isSidebarOpen, isBodyOpen, isQuestionOpen,
-    isDark, openSidebar, myLevel, course } = useGlobalContext();
+  const { isSidebarOpen, isDark } = useGlobalContext();
 
   return (
     <div className={`${isDark ? "App AppDark" : "App"}`} >
@@ -21,12 +20,13 @@ function App() {
         <Sidebar className="Desktop" />
         <div className='desktop'>
           <Header />
-          {course[0] ?
-            <p className='level'>{myLevel} Level CBT Revise</p> :
-            <p className={`${isDark ? "welcomeMessageDark" : "welcomeMessage"}`}>Welcome,You can choose your level <a onClick={openSidebar}>here</a></p>}
-
-          {isBodyOpen && <Body />}
-          {isQuestionOpen && <Questions />}
+          {/**course[0] ?
+            <p className='level'>{myCourseName} Level CBT Revise</p> :
+  <p className={`${isDark ? "welcomeMessageDark" : "welcomeMessage"}`}>Welcome,You can choose your level <a onClick={openSidebar}>here</a></p>}**/}
+          <Routes>
+            <Route path='accessment/:id' element={<Body />} />
+            <Route path='test' element={<Questions />} />
+          </Routes>
         </div>
       </div>
     </div>
