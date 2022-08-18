@@ -4,8 +4,7 @@ import { useGlobalContext } from '../Context/AppContext'
 
 const Body = () => {
     const { isDark, course, closeBody,
-        getQuestion, getAnswer, atempted } = useGlobalContext();
-
+        getQuestion, getAnswer } = useGlobalContext();
 
     return (
         <>

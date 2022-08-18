@@ -1,5 +1,4 @@
 import React from 'react'
-import img from '../Images/avatar3.png'
 import { FaTimes } from "react-icons/fa"
 import { useGlobalContext } from '../Context/AppContext'
 
@@ -7,14 +6,11 @@ const Sidebar = ({ className }) => {
   const { closeSidebar, isDark, data,
     getCourse, openBody } = useGlobalContext();
 
-
-
-
   return (
     <aside id={className} className={`${isDark ? "aside" : ""}`}>
       <FaTimes className="close fa" onClick={closeSidebar} />
-      <h3>Revise</h3>
-      <img src={img} alt="pic" />
+      <h3>Account</h3>
+      <h3 className='filter'>Filter</h3>
       <div className='navigation'>
         <ul onClick={openBody}>
           {data.map((item) => {
@@ -23,7 +19,7 @@ const Sidebar = ({ className }) => {
               onClick={() => {
                 getCourse(item.id, item.level)
                 closeSidebar(item.id)
-              }}>{item.level} level</li>
+              }}>{item.name}</li>
           })}
         </ul>
       </div>

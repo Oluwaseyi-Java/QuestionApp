@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import axios from "axios";
+import React, { useEffect, useState } from "react";
 import { createContext } from "react";
 import { useContext } from "react";
-import { Data } from "../Data";
 
 const AppContext = createContext();
 
@@ -11,19 +11,27 @@ const AppProvider = ({ children }) => {
     const [isQuestionOpen, setIsQuestionOpen] = useState(false)
 
     const [isDark, setIsDark] = useState(false)
-    const [data, setData] = useState(Data)
+    const [data, setData] = useState([])
     const [course, setCourse] = useState([])
     const [question, setQuestion] = useState([])
     const [answer, setAnswer] = useState([])
     const [myLevel, setMyLevel] = useState("")
     const [myCourse, setMyCourse] = useState("")
 
+    useEffect(() => {
+        axios.get("https://opentdb.com/api_category.php")
+            .then((response) => {
+                console.log(response.data)
+                setData(response.data.trivia_categories)
+            })
+    }, [])
+    console.log(data)
     const openSidebar = (id) => {
         setIsSidebarOpen(true)
     }
-    
+
     const closeSidebar = (id) => {
-      
+
         setIsSidebarOpen(false)
     }
     const openBody = () => {
